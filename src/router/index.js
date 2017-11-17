@@ -11,6 +11,7 @@ import ParentChildEventHandling from '@/components/ParentChildEventHandling';
 import LifeCycleHook from '@/components/LifeCycleHook';
 import ParentChildTwowayBinding from '@/components/ParentChildTwowayBinding';
 import ElementFind from '@/components/ElementFind';
+import StyleBind from '@/components/StyleBind';
 
 Vue.use(Router);
 
@@ -74,6 +75,11 @@ export default new Router({
             path: '/element-find',
             name: 'ElementFind',
             component: ElementFind
+        },
+        {
+            path: '/style-bind',
+            name: 'StyleBind',
+            component: StyleBind
         }
     ]
 });
