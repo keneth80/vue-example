@@ -1,20 +1,19 @@
 <template>
     <div class="container">
-        <h1>Let's hear some stories!</h1>
-        <ul class="list-group">
-            <story v-for="(story, index) in stories"
+        <h1>Element Find</h1>
+        <ul class="list-group" ref="listgroup">
+            <story v-for="(story, index) in stories" ref="stories"
                 :key="index"
                 :story="story"
                 :favorite="favorite"
                 @update="updateFavorite">
             </story>
         </ul>
-        <pre>
-            {{ $data }}
-        </pre>
     </div>
 </template>
 <script>
+// ref directives use : ref="listgroup" and ref="stories"
+// result : vm.$refs
 import Vue from 'vue';
 
 Vue.component('story', {
@@ -52,7 +51,7 @@ Vue.component('story', {
     }
 });
 export default {
-    name: 'ParentChildTwowayBinding',
+    name: 'ElementFind',
     data () {
         return {
             stories: [

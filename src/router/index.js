@@ -10,6 +10,7 @@ import EventHandling from '@/components/EventHandling';
 import ParentChildEventHandling from '@/components/ParentChildEventHandling';
 import LifeCycleHook from '@/components/LifeCycleHook';
 import ParentChildTwowayBinding from '@/components/ParentChildTwowayBinding';
+import ElementFind from '@/components/ElementFind';
 
 Vue.use(Router);
 
@@ -68,6 +69,11 @@ export default new Router({
             path: '/parent-child-twoway-binding',
             name: 'ParentChildTwowayBinding',
             component: ParentChildTwowayBinding
+        },
+        {
+            path: '/element-find',
+            name: 'ElementFind',
+            component: ElementFind
         }
     ]
 });
