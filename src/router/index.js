@@ -9,6 +9,7 @@ import ListFiltering from '@/components/ListFiltering';
 import EventHandling from '@/components/EventHandling';
 import ParentChildEventHandling from '@/components/ParentChildEventHandling';
 import LifeCycleHook from '@/components/LifeCycleHook';
+import ParentChildTwowayBinding from '@/components/ParentChildTwowayBinding';
 
 Vue.use(Router);
 
@@ -62,6 +63,11 @@ export default new Router({
             path: '/lifecycle-hook',
             name: 'LifeCycleHook',
             component: LifeCycleHook
+        },
+        {
+            path: '/parent-child-twoway-binding',
+            name: 'ParentChildTwowayBinding',
+            component: ParentChildTwowayBinding
         }
     ]
 });

@@ -7,6 +7,7 @@
         <router-link to="/list-filtering">List Filtering</router-link>
         <router-link to="/event-handling">Event Handling</router-link>
         <router-link to="/parent-child-event-handling">Parent Child Event Handling</router-link>
+        <router-link to="/parent-child-twoway-binding">Parent Child Twoway Binding</router-link>
         <router-link to="/lifecycle-hook">LifeCycle Hook</router-link>
         <router-link to="/form-control">Form Control</router-link>
         <router-link to="/coins/ethereum">Dynamic path routes - Ethereum</router-link>
