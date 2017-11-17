@@ -24,6 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      '$': 'jquery/dist/jquery.min.js',
       '@': resolve('src'),
     }
   },
@@ -72,7 +73,8 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      { test: /[\/]jquery\.js$/, use: 'expose-loader?$!expose?jQuery' }
     ]
   }
 }
