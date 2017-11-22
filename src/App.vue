@@ -11,6 +11,9 @@
         <router-link to="/element-find">Element Find</router-link>
         <router-link to="/style-bind">Style Bind</router-link>
         <router-link to="/lifecycle-hook">LifeCycle Hook</router-link>
+        <router-link to="/render-function">Render Function</router-link>
+        <router-link to="/custom-render-function">Custom Render Function</router-link>
+        <router-link to="/instance-method-data">Instance Method / Data</router-link>
         <router-link to="/form-control">Form Control</router-link>
         <router-link to="/coins/ethereum">Dynamic path routes - Ethereum</router-link>
         <router-link to="/coins/bitcoin">Dynamic path routes - Bitcoin</router-link>

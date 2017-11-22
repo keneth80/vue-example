@@ -12,6 +12,9 @@ import LifeCycleHook from '@/components/LifeCycleHook';
 import ParentChildTwowayBinding from '@/components/ParentChildTwowayBinding';
 import ElementFind from '@/components/ElementFind';
 import StyleBind from '@/components/StyleBind';
+import RenderFunction from '@/components/RenderFunction';
+import CustomRenderFunction from '@/components/CustomRenderFunction';
+import InstanceMethodData from '@/components/InstanceMethodData';
 
 Vue.use(Router);
 
@@ -80,6 +83,21 @@ export default new Router({
             path: '/style-bind',
             name: 'StyleBind',
             component: StyleBind
+        },
+        {
+            path: '/render-function',
+            name: 'RenderFunction',
+            component: RenderFunction
+        },
+        {
+            path: '/custom-render-function',
+            name: 'CustomRenderFunction',
+            component: CustomRenderFunction
+        },
+        {
+            path: '/instance-method-data',
+            name: 'InstanceMethodData',
+            component: InstanceMethodData
         }
     ]
 });
