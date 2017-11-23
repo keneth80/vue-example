@@ -1,7 +1,7 @@
 <template>
     <div class='container'>
         <h1>Type 2 numbers and choose operation.</h1>
-        <form class='form-inline'>
+        <form class='form-inline' style="display: block;">
             <!-- Notice here the special attribute 'number'
             is passed in order to parse inputs as numbers.-->
             <input v-model.number='a'  class='form-control'>

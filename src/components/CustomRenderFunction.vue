@@ -1,11 +1,13 @@
 <template>
     <div class='container'>
+        <h1>Custom Render Function</h1>
         <sections name="section1" :value="sections1"/>
         <sections name="section2" :value="sections2"/>
     </div>
 </template>
 
 <script>
+// Container template 을 활용할 수 있을 것 같음.
 import Vue from 'vue';
 
 Vue.component('list-section', {
@@ -17,7 +19,7 @@ Vue.component('list-section', {
     },
     template: `<div class='container'>
                     <ul class='list-group'>
-                        <li v-for="item in value" :class="{emph: item.emph}">{{item.text}}</li>
+                        <li class="list-group-item" v-for="item in value" :class="{emph: item.emph}">list : {{item.text}}</li>
                     </ul>
                 </div>`
 });
@@ -29,7 +31,7 @@ Vue.component('text-section', {
             required: true
         }
     },
-    template: `<div>{{value}}</div>`
+    template: `<div>text : {{value}}</div>`
 });
 
 Vue.component('sections', {
@@ -51,7 +53,7 @@ Vue.component('sections', {
                 }
             });
         });
-        console.log('render : ', this.name, children);
+        console.log('render : ', this.value, this.name, children);
         return createElement('div', { 'class': 'sections' }, children);
     }
 });

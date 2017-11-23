@@ -13,6 +13,7 @@
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
+        <span>computed: {{textResult}}</span>
     </div>
 </template>
 
@@ -36,10 +37,15 @@ export default {
         };
     },
     watch: {
-        isDeep (n, o) {
-            console.log('isDeep watch : ', n, o);
+        isDeep (newvalue, oldvalue) {
+            console.log('isDeep watch : ', newvalue, oldvalue);
             this.watcher();
             this.addWatch();
+        }
+    },
+    computed: {
+        textResult: function () {
+            return this.log.toString();
         }
     },
     methods: {

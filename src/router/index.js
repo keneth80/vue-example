@@ -15,6 +15,8 @@ import StyleBind from '@/components/StyleBind';
 import RenderFunction from '@/components/RenderFunction';
 import CustomRenderFunction from '@/components/CustomRenderFunction';
 import InstanceMethodData from '@/components/InstanceMethodData';
+import Mixin from '@/components/Mixin';
+import ScopedSlots from '@/components/ScopedSlots';
 
 Vue.use(Router);
 
@@ -98,6 +100,16 @@ export default new Router({
             path: '/instance-method-data',
             name: 'InstanceMethodData',
             component: InstanceMethodData
+        },
+        {
+            path: '/mixin',
+            name: 'Mixin',
+            component: Mixin
+        },
+        {
+            path: '/scoped-slots',
+            name: 'ScopedSlots',
+            component: ScopedSlots
         }
     ]
 });
