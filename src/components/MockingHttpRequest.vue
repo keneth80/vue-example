@@ -7,7 +7,7 @@
         <button @click="getData('/quotes', 'post')">
             post /quotes
         </button>
-        <button @click="getData('/quotes/18', 'get')">
+        <button @click="getData('/quotes/${memberId}', 'get', {memberId: 18})">
             get /quotes/18
         </button>
         <ul class="list-group">
@@ -62,6 +62,29 @@ function setupInterceptor () {
     });
 }
 
+function Prop (obj, is, value) {
+    if (typeof is === 'string') {
+        is = is.split('.');
+    }
+    if (is.length === 1 && value !== undefined) {
+        obj[is[0]] = value;
+        return obj;
+    } else if (is.length === 0) {
+        return obj;
+    } else {
+        var prop = is.shift();
+        // Forge a path of nested objects if there is a value to set
+        if (value !== undefined && obj[prop] === undefined) {
+            obj[prop] = {};
+        }
+        return Prop(obj[prop], is, value);
+    }
+}
+
+function render (str, obj) {
+    return str.replace(/\$\{(.+?)\}/g, (match, p1) => { return Prop(obj, p1); });
+}
+
 setupInterceptor();
 
 export default {
@@ -77,8 +100,9 @@ export default {
         };
     },
     methods: {
-        getData (url, method) {
-            this.$http[method](url).then(res => {
+        getData (url, method, params = {}) {
+            const queryString = render(url, params);
+            this.$http[method](queryString).then(res => {
                 console.log('response => ', res);
                 this.log = res.data;
             }, response => {
