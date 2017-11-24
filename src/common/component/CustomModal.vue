@@ -10,12 +10,12 @@
                 </div>
                 <div class="modal-body">
                     <slot name="body">
-                        {{body}}
+                        <div v-html="body">
+                        </div>
                     </slot>
                 </div>
                 <div class="modal-footer">
                     <slot name="footer">
-                        default footer
                         <button class="modal-default-button" @click="$emit('close')">
                             OK
                         </button>

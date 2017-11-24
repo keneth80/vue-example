@@ -12,7 +12,7 @@ export default class HttpCaller {
                 dispatchEvent(new CustomEvent(MaintEventType.MAIN_EVENT, {detail: resposeData}));
             })
             .catch(e => {
-                dispatchEvent(new CustomEvent(ErrorEventType.SERVER_ERROR, {detail: {errorCode: 500, message: e.message}}));
+                dispatchEvent(new CustomEvent(ErrorEventType.SERVER_ERROR, {detail: {errorCode: 404, message: e.message}}));
                 console.log('Error => ', e);
             });
     }
