@@ -20,6 +20,7 @@
         <button><router-link to="/coins/ethereum">Dynamic path routes - Ethereum</router-link></button>
         <button><router-link to="/coins/bitcoin">Dynamic path routes - Bitcoin</router-link></button>
         <button><router-link to="/service-caller">Service Caller</router-link></button>
+        <button><router-link to="/mock-service">Mock Service</router-link></button>
         <router-view/>
     </div>
 </template>

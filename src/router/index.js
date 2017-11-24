@@ -18,6 +18,7 @@ import InstanceMethodData from '@/components/InstanceMethodData';
 import Mixin from '@/components/Mixin';
 import ScopedSlots from '@/components/ScopedSlots';
 import ServiceCaller from '@/components/ServiceCaller';
+import MockingHttpRequest from '@/components/MockingHttpRequest';
 
 Vue.use(Router);
 
@@ -116,6 +117,11 @@ export default new Router({
             path: '/service-caller',
             name: 'ServiceCaller',
             component: ServiceCaller
+        },
+        {
+            path: '/mock-service',
+            name: 'MockingHttpRequest',
+            component: MockingHttpRequest
         }
     ]
 });
