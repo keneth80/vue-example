@@ -10,7 +10,7 @@
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
-        <modal v-if="showModal" title="Title" body="Content : Kenneth" @close="showModal = false">
+        <modal v-if="showModal" title="Title" :body="errorMsg" @close="showModal = false">
             <h3 slot="header">Custom header</h3>
         </modal>
     </div>
@@ -31,7 +31,8 @@ export default {
                 author: 'kenneth'
             },
             log: [],
-            showModal: false
+            showModal: false,
+            errorMsg: ''
         };
     },
     components: {
@@ -49,6 +50,7 @@ export default {
             this.log = event.detail.data;
         },
         showError (event) {
+            this.errorMsg = 'Error Message : <br/> <h5>' + event.detail.message + '</h5>';
             this.showModal = true;
             console.log('showError : ', event);
         }
