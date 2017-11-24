@@ -19,6 +19,7 @@
         <button><router-link to="/form-control">Form Control</router-link></button>
         <button><router-link to="/coins/ethereum">Dynamic path routes - Ethereum</router-link></button>
         <button><router-link to="/coins/bitcoin">Dynamic path routes - Bitcoin</router-link></button>
+        <button><router-link to="/service-caller">Service Caller</router-link></button>
         <router-view/>
     </div>
 </template>

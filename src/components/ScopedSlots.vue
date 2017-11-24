@@ -100,7 +100,16 @@ Vue.component('orders-page', {
 // new Vue({ el: '#app', name: 'ScopedSlots' });
 export default {
     // el: '#app',
-    name: 'ScopedSlots'
+    name: 'ScopedSlots',
+    created () {
+        // var template = templateMaker('Hello, my name is ${data.name}', 'data');
+        // var result = template({
+        //     name: 'kenneth'
+        // });
+        // console.log('template string : ', result);
+        console.log(render('abc${a}asdas', {a: 23, b: 44})); // abc23asdas
+        console.log(render('abc${a.c}asdas', {a: {c: 22, d: 55}, b: 44})); // abc22asdas
+    }
 };
 
 function getOrders (orderBy = 'id', direction = 'asc') {
@@ -127,6 +136,33 @@ function getOrders (orderBy = 'id', direction = 'asc') {
     return orders.sort((a, b) => {
         return (a[orderBy] - b[orderBy]) * (direction === 'asc' ? 1 : -1);
     });
+}
+
+// function templateMaker (literal, params) {
+//     return Function(params, 'return `' + literal + '`;');
+// }
+
+function Prop (obj, is, value) {
+    if (typeof is === 'string') {
+        is = is.split('.');
+    }
+    if (is.length === 1 && value !== undefined) {
+        obj[is[0]] = value;
+        return obj;
+    } else if (is.length === 0) {
+        return obj;
+    } else {
+        var prop = is.shift();
+        // Forge a path of nested objects if there is a value to set
+        if (value !== undefined && obj[prop] === undefined) {
+            obj[prop] = {};
+        }
+        return Prop(obj[prop], is, value);
+    }
+}
+
+function render (str, obj) {
+    return str.replace(/\$\{(.+?)\}/g, (match, p1) => { return Prop(obj, p1); });
 }
 </script>
 <style>

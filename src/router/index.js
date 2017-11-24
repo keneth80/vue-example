@@ -17,6 +17,7 @@ import CustomRenderFunction from '@/components/CustomRenderFunction';
 import InstanceMethodData from '@/components/InstanceMethodData';
 import Mixin from '@/components/Mixin';
 import ScopedSlots from '@/components/ScopedSlots';
+import ServiceCaller from '@/components/ServiceCaller';
 
 Vue.use(Router);
 
@@ -110,6 +111,11 @@ export default new Router({
             path: '/scoped-slots',
             name: 'ScopedSlots',
             component: ScopedSlots
+        },
+        {
+            path: '/service-caller',
+            name: 'ServiceCaller',
+            component: ServiceCaller
         }
     ]
 });
