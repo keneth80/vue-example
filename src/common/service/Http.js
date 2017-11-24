@@ -12,6 +12,7 @@ export default class HttpCaller {
                 dispatchEvent(new CustomEvent(MainEvent.MAIN_EVENT, {detail: resposeData}));
             })
             .catch(e => {
+                dispatchEvent(new CustomEvent(MainEvent.ErrorEvent.SERVER_ERROR, {detail: {errorCode: 500, message: e.message}}));
                 console.log('Error => ', e);
             });
     }
