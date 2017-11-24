@@ -24,6 +24,7 @@ module.exports = {
         'indent': ['error', 4, {'SwitchCase': 1}],
         "no-extra-semi": 2,
         'no-template-curly-in-string': 0,
+        'prefer-default-export': 0,
         'semi': ['error', 'always'],
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
