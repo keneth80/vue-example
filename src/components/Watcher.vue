@@ -13,6 +13,9 @@
         <button @click="setArrayItem">
             Array item Update
         </button>
+        <button @click="reset">
+            Clear
+        </button>
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
@@ -23,7 +26,7 @@
 <script>
 
 export default {
-    name: 'InstanceMethodData',
+    name: 'Watcher',
     data () {
         return {
             messageObj: {
@@ -39,6 +42,9 @@ export default {
             },
             updateCnt: {
                 type: Number
+            },
+            resultString: {
+                type: String
             }
         };
     },
@@ -55,8 +61,14 @@ export default {
         }
     },
     computed: {
-        textResult: function () {
-            return this.log.toString();
+        textResult: {
+            get: function () {
+                this.resultString = this.log.toString();
+                return this.resultString;
+            },
+            set: function (value) {
+                this.resultString = value;
+            }
         }
     },
     methods: {
@@ -87,6 +99,17 @@ export default {
             this.log[0] = 'Update Array Item' + this.updateCnt;
             // Array 의 length 변경이 없이 해당 index의 값만 변경 시에는 $forceUpdate 를 해줘야함.
             this.$forceUpdate();
+        },
+        reset () {
+            this.messageObj = {
+                id: '01',
+                text: 'Watch Example',
+                author: 'kenneth'
+            };
+            this.clickCnt = 0;
+            this.updateCnt = 0;
+            this.textResult = '';
+            this.log = [];
         }
     },
     beforeCreate () {
