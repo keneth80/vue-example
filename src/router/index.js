@@ -14,7 +14,7 @@ import ElementFind from '@/components/ElementFind';
 import StyleBind from '@/components/StyleBind';
 import RenderFunction from '@/components/RenderFunction';
 import CustomRenderFunction from '@/components/CustomRenderFunction';
-import InstanceMethodData from '@/components/InstanceMethodData';
+import Watcher from '@/components/Watcher';
 import Mixin from '@/components/Mixin';
 import ScopedSlots from '@/components/ScopedSlots';
 import ServiceCaller from '@/components/ServiceCaller';
@@ -99,9 +99,9 @@ export default new Router({
             component: CustomRenderFunction
         },
         {
-            path: '/instance-method-data',
-            name: 'InstanceMethodData',
-            component: InstanceMethodData
+            path: '/watcher',
+            name: 'Watcher',
+            component: Watcher
         },
         {
             path: '/mixin',
