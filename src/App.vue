@@ -21,6 +21,7 @@
         <button><router-link to="/coins/bitcoin">Dynamic path routes - Bitcoin</router-link></button>
         <button class="btnbold"><router-link to="/service-caller">Service Caller</router-link></button>
         <button class="btnbold"><router-link to="/mock-service">Mock Service</router-link></button>
+        <button class="btnbold"><router-link to="/dynamic-component-mount">Dynamic Component (Mount)</router-link></button>
         <router-view/>
     </div>
 </template>

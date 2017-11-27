@@ -19,6 +19,7 @@ import Mixin from '@/components/Mixin';
 import ScopedSlots from '@/components/ScopedSlots';
 import ServiceCaller from '@/components/ServiceCaller';
 import MockingHttpRequest from '@/components/MockingHttpRequest';
+import DynamicComponentOfMount from '@/components/DynamicComponentOfMount';
 
 Vue.use(Router);
 
@@ -122,6 +123,11 @@ export default new Router({
             path: '/mock-service',
             name: 'MockingHttpRequest',
             component: MockingHttpRequest
+        },
+        {
+            path: '/dynamic-component-mount',
+            name: 'DynamicComponentOfMount',
+            component: DynamicComponentOfMount
         }
     ]
 });

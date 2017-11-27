@@ -8,6 +8,11 @@
 </template>
 <script>
 var lifecycleMeta = {
+    methods: {
+        creationComplete () {
+            console.log('mixin target creationComplete');
+        }
+    },
     beforeCreate () {
         console.log('mixin target beforeCreate');
     },
@@ -23,6 +28,7 @@ var lifecycleMeta = {
     mounted () {
         console.log('mixin target mounted');
         this.$nextTick(function () {
+            this.creationComplete();
             console.log('mixin target all creation');
         });
     },
@@ -40,6 +46,11 @@ var lifecycleMeta = {
 
 export default {
     name: 'Mixin',
+    methods: {
+        creationComplete () { // mixin target method : component lifecycle을 사용자 정의로 만들 수 있음.
+            console.log('creationComplete');
+        }
+    },
     data () {
         return {
             log: [],

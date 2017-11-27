@@ -10,8 +10,8 @@
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
-        <modal v-if="showModal" title="Title" :body="errorMsg" @close="showModal = false">
-            <h3 slot="header">Custom header</h3>
+        <modal v-if="showModal" title="Error" :body="errorMsg" @close="showModal = false">
+            <h3 slot="header">Error</h3>
         </modal>
     </div>
 </template>
