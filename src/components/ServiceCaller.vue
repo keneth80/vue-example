@@ -5,7 +5,7 @@
             get data
         </button>
         <button @click="setError">
-            Error
+            get data Error
         </button>
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>

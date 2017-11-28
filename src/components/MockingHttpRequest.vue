@@ -110,7 +110,7 @@ export default {
             const queryString2 = template({
                 memberId: 18
             });
-            console.log('getData => ', queryString, queryString2);
+            console.log('getData => ', queryString, queryString2, this.$http);
             this.$http[method](queryString).then(res => {
                 console.log('response => ', res);
                 this.log = res.data;
@@ -128,8 +128,8 @@ export default {
         var result = template({
             name: 'kenneth'
         });
-        console.log('template string : ', result);
         console.log('created');
+        console.log('template string : ', result);
     },
     beforeMount () {
         console.log('beforeMount');

@@ -76,12 +76,14 @@ export default {
     mounted () {
         // 마운트가 되고 나서야 vm에 바인딩이 된다. this.$refs.title = <h1>LifeCycle Log:</h1>
         console.log('mounted', this.$refs.title);
+        this.log.push('mounted');
         this.$nextTick(function () {
-            this.log.push('mounted');
+            this.log.push('mounted $nextTick');
+            console.log('mounted $nextTick');
         });
     },
     beforeDestroy () {
-        console.log('beforeDestroy', this);
+        console.log('beforeDestroy', this.$refs);
         this.log.push('beforeDestroy');
     },
     destroyed () {

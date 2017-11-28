@@ -3,7 +3,7 @@
         <h1>{{ message }}</h1>
         <some-component :show="show"></some-component>
         <button @click="setTrue">
-            Show
+            {{show? 'Hide': 'Show'}}
         </button>
     </div>
 </template>
@@ -29,6 +29,7 @@ Vue.component('some-component', {
     },
     methods: {
         quit () {
+            // mount 해제.
             this.$destroy();
         }
     }
