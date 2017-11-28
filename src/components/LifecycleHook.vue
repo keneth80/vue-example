@@ -1,10 +1,11 @@
 <template>
     <div class="container text-center">
-        <h1>LifeCycle Log:</h1>
+        <img src="../assets/lifecycle.png" class="lifecycle">
+        <h1 ref="title">{{title}}</h1>
         <button class="btn btn-default" @click="test">Update</button>
         <button class="btn btn-default" @click="reset">Reset</button>
         <errorbtn name="Error call"></errorbtn>
-        <ul class="list-group">
+        <ul class="list-group" ref="list-container">
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
     </div>
@@ -34,6 +35,7 @@ export default {
     name: 'LifeCycleHook',
     data () {
         return {
+            title: 'LifeCycle Log:',
             log: []
         };
     },
@@ -58,10 +60,11 @@ export default {
         }
     },
     beforeCreate () {
-        console.log('beforeCreate');
+        console.log('beforeCreate => log', this.log);
     },
     created () {
-        console.log('created');
+        // mounted 되기전에는 하위 element가 vm에 바인딩 되지 않는다. this.$refs.title = undefined
+        console.log('created => log', this.$refs.title);
         this.log.push('created');
     },
     beforeMount () {
@@ -71,17 +74,18 @@ export default {
         console.log('updated', this.log);
     },
     mounted () {
-        console.log('mounted');
+        // 마운트가 되고 나서야 vm에 바인딩이 된다. this.$refs.title = <h1>LifeCycle Log:</h1>
+        console.log('mounted', this.$refs.title);
         this.$nextTick(function () {
             this.log.push('mounted');
         });
     },
     beforeDestroy () {
-        console.log('beforeDestroy');
+        console.log('beforeDestroy', this);
         this.log.push('beforeDestroy');
     },
     destroyed () {
-        console.log('destroyed');
+        console.log('destroyed', this);
         this.log.push('destroyed');
     },
     errorCaptured (error, vm, info) {
@@ -90,3 +94,9 @@ export default {
     }
 };
 </script>
+<style>
+.lifecycle {
+    width: 50%;
+    float: left;
+}
+</style>

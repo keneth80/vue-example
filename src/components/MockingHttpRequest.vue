@@ -85,6 +85,10 @@ function render (str, obj) {
     return str.replace(/\$\{(.+?)\}/g, (match, p1) => { return Prop(obj, p1); });
 }
 
+function templateMaker (literal, params) {
+    return Function(params, 'return `' + literal + '`;');
+}
+
 setupInterceptor();
 
 export default {
@@ -102,6 +106,11 @@ export default {
     methods: {
         getData (url, method, params = {}) {
             const queryString = render(url, params);
+            var template = templateMaker('/quotes/${data.memberId}', 'data');
+            const queryString2 = template({
+                memberId: 18
+            });
+            console.log('getData => ', queryString, queryString2);
             this.$http[method](queryString).then(res => {
                 console.log('response => ', res);
                 this.log = res.data;
@@ -115,6 +124,11 @@ export default {
         console.log('beforeCreate');
     },
     created () {
+        var template = templateMaker('Hello, my name is ${data.name}', 'data');
+        var result = template({
+            name: 'kenneth'
+        });
+        console.log('template string : ', result);
         console.log('created');
     },
     beforeMount () {

@@ -20,6 +20,7 @@ import ScopedSlots from '@/components/ScopedSlots';
 import ServiceCaller from '@/components/ServiceCaller';
 import MockingHttpRequest from '@/components/MockingHttpRequest';
 import DynamicComponentOfMount from '@/components/DynamicComponentOfMount';
+import Filters from '@/components/Filters';
 
 Vue.use(Router);
 
@@ -128,6 +129,11 @@ export default new Router({
             path: '/dynamic-component-mount',
             name: 'DynamicComponentOfMount',
             component: DynamicComponentOfMount
+        },
+        {
+            path: '/filters',
+            name: 'Filters',
+            component: Filters
         }
     ]
 });

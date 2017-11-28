@@ -11,7 +11,7 @@
         <button><router-link to="/element-find">Element Find</router-link></button>
         <button><router-link to="/style-bind">Style Bind</router-link></button>
         <button class="btnbold"><router-link to="/lifecycle-hook">LifeCycle Hook</router-link></button>
-        <button><router-link to="/mixin">Mixin</router-link></button>
+        <button class="btnbold"><router-link to="/mixin">Mixin</router-link></button>
         <button class="btnbold"><router-link to="/scoped-slots">Scoped Slots</router-link></button>
         <button class="btnbold"><router-link to="/render-function">Render Function</router-link></button>
         <button class="btnbold"><router-link to="/custom-render-function">Custom Render Function</router-link></button>
@@ -19,6 +19,7 @@
         <button><router-link to="/form-control">Form Control</router-link></button>
         <button><router-link to="/coins/ethereum">Dynamic path routes - Ethereum</router-link></button>
         <button><router-link to="/coins/bitcoin">Dynamic path routes - Bitcoin</router-link></button>
+        <button><router-link to="/filters">Filters</router-link></button>
         <button class="btnbold"><router-link to="/service-caller">Service Caller</router-link></button>
         <button class="btnbold"><router-link to="/mock-service">Mock Service</router-link></button>
         <button class="btnbold"><router-link to="/dynamic-component-mount">Dynamic Component (Mount)</router-link></button>

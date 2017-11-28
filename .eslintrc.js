@@ -22,7 +22,8 @@ module.exports = {
         // allow async-await
         'generator-star-spacing': 0,
         'indent': ['error', 4, {'SwitchCase': 1}],
-        "no-extra-semi": 2,
+        'no-extra-semi': 2,
+        'no-new-func': 0,
         'no-template-curly-in-string': 0,
         'prefer-default-export': 0,
         'semi': ['error', 'always'],

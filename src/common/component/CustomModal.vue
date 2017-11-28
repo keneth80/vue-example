@@ -74,6 +74,11 @@ export default Modal;
   margin: 20px 0;
 }
 
+span {
+    display: block;
+    word-wrap: break-word;
+}
+
 .modal-default-button {
   float: right;
 }

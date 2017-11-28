@@ -97,16 +97,10 @@ Vue.component('orders-page', {
     }
 });
 
-// new Vue({ el: '#app', name: 'ScopedSlots' });
 export default {
     // el: '#app',
     name: 'ScopedSlots',
     created () {
-        // var template = templateMaker('Hello, my name is ${data.name}', 'data');
-        // var result = template({
-        //     name: 'kenneth'
-        // });
-        // console.log('template string : ', result);
         console.log(render('abc${a}asdas', {a: 23, b: 44})); // abc23asdas
         console.log(render('abc${a.c}asdas', {a: {c: 22, d: 55}, b: 44})); // abc22asdas
     }
@@ -137,10 +131,6 @@ function getOrders (orderBy = 'id', direction = 'asc') {
         return (a[orderBy] - b[orderBy]) * (direction === 'asc' ? 1 : -1);
     });
 }
-
-// function templateMaker (literal, params) {
-//     return Function(params, 'return `' + literal + '`;');
-// }
 
 function Prop (obj, is, value) {
     if (typeof is === 'string') {

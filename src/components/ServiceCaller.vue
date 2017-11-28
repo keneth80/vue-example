@@ -18,7 +18,7 @@
 
 <script>
 import HttpCaller from '../common/service/Http';
-import CustomModal from '../common/component/CustomModal';
+import { CustomModal } from '../common/component/index';
 import { MaintEventType, ErrorEventType } from '../common/EventConstant';
 
 export default {
@@ -50,7 +50,7 @@ export default {
             this.log = event.detail.data;
         },
         showError (event) {
-            this.errorMsg = 'Error Message : <br/> <h5>' + event.detail.message + '</h5>';
+            this.errorMsg = `<span>URI : ${event.detail.uri} <br/> Message: <br/> <h5> ${event.detail.message} </h5></span>`;
             this.showModal = true;
             console.log('showError : ', event);
         }
