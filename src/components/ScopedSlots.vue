@@ -5,6 +5,7 @@
 </template>
 <script>
 import Vue from 'vue';
+import { TABLE_TEMPLATE, GRID_TEMPLATE } from '../common/template/table-template.html';
 
 var tableTemplate = `
     <table>
@@ -27,7 +28,7 @@ var tableTemplate = `
 
 Vue.component('grid', {
     props: ['rows', 'headers'],
-    template: tableTemplate,
+    template: TABLE_TEMPLATE.BASIC,
     data () {
         return {
             orderBy: Object.keys(this.headers)[0],
@@ -75,7 +76,7 @@ var gridTemplate = `
 `;
 
 Vue.component('orders-page', {
-    template: gridTemplate,
+    template: GRID_TEMPLATE.BASIC,
     data () {
         return {
             headers: {

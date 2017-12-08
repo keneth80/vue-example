@@ -4,16 +4,10 @@
             {{ votes.count }}
         </p>
         <button class="btn btn-danger" @click="reset">Reset votes</button>
-        <p style="font-size: 40px;">
-            Two way data {{ twoway }}
-        </p>
-        <button @click="changeName">
-            Food item name Change
-        </button>
         <div class="row">
-            <food @voted="countVote" :name="cheeseburger" v-model="twoway"></food>
-            <food @voted="countVote" name="Double Bacon Burger" v-model="twoway"></food>
-            <food @voted="countVote" name="Rodeo Burger" v-model="twoway"></food>
+            <food @voted="countVote" name="Cheeseburger" v-model="twoway"></food>
+            <food @voted="countVote" name="Double Bacon Burger"></food>
+            <food @voted="countVote" name="Rodeo Burger"></food>
         </div>
         <h1>Log:</h1>
         <ul class="list-group">
@@ -35,13 +29,6 @@ Vue.component('food', {
             <button class="btn btn-default" @click="vote">{{ name }} ({{twoway}})</button>
         </div>`,
     props: ['name'],
-    watch: {
-        name: {
-            handler: function (newvalue, oldevalue) {
-                console.log('food component name change : ', newvalue, oldevalue);
-            }
-        }
-    },
     data: function () {
         return {
             votes: 0,
@@ -50,11 +37,8 @@ Vue.component('food', {
     },
     methods: {
         vote: function () {
-            var vm = this;
             var food = event.srcElement.textContent;
             this.votes++;
-            this.twoway++;
-            vm.$emit('input', this.twoway);
             bus.$emit('voted', food);
         },
         reset: function () {
@@ -73,16 +57,8 @@ export default {
             votes: {
                 count: 0,
                 log: []
-            },
-            cheeseburger: 'Cheeseburger'
-        };
-    },
-    watch: {
-        twoway: {
-            handler: function (newvalue, oldvalue) {
-                console.log('twoway : ', newvalue, oldvalue);
             }
-        }
+        };
     },
     methods:
     {
@@ -96,9 +72,6 @@ export default {
                 log: []
             };
             bus.$emit('reset');
-        },
-        changeName: function () {
-            this.cheeseburger = 'Change cheeseburger';
         }
     },
     created () {

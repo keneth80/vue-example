@@ -7,11 +7,21 @@
     </div>
 </template>
 <script>
+import { MEMBER_TYPE } from '../common/EventConstant';
+
 var lifecycleMeta = {
     methods: {
         creationComplete () {
             console.log('mixin target creationComplete');
         }
+    },
+    data () {
+        return {
+            parentObj: {
+                id: 'pretty',
+                name: 'kenneth'
+            }
+        };
     },
     beforeCreate () {
         console.log('mixin target beforeCreate');
@@ -54,7 +64,11 @@ export default {
     data () {
         return {
             log: [],
-            message: 'Mixin Example'
+            message: 'Mixin Example',
+            memberObj: {
+                memberId: 'Tiger',
+                memberName: 'John'
+            }
         };
     },
     mixins: [lifecycleMeta],
@@ -69,7 +83,7 @@ export default {
     },
     mounted () {
         this.$nextTick(function () {
-            this.log.push('mounted');
+            this.log.push('mounted', this.memberObj[MEMBER_TYPE.memberId]);
         });
     },
     beforeDestroy () {

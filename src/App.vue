@@ -28,8 +28,37 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+import CommandActionMap from './common/event/CommandActionMap';
+import BeanContainer from './common/model/BeanContainer';
+import { MaintEventType } from './common/EventConstant';
+
+Vue.use(VueResource);
+
 export default {
-    name: 'app'
+    name: 'app',
+    methods: {
+        onCommandAction: function (event) {
+            console.log('onCommandAction : ', event);
+            const commandActionMap = CommandActionMap.getInstance();
+            const sendEvent = {
+                action: event.detail.action,
+                data: event.detail.data
+            };
+            commandActionMap.executeAction(event.detail.action, sendEvent);
+        }
+    },
+    created () {
+        const beanContainer = BeanContainer.getInstance();
+        beanContainer.addBean('userInfo', {
+            memberId: 'pretty',
+            name: 'kenneth'
+        });
+        const commandActionMap = CommandActionMap.getInstance();
+        console.log('APP => commandActionMap : ', commandActionMap, MaintEventType.MAIN_EVENT);
+        addEventListener(MaintEventType.MAIN_EVENT, this.onCommandAction);
+    }
 };
 </script>
 
