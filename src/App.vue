@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="app">
+    <div class="container" id="app" style="height: 100%;">
         <!-- <img src="./assets/logo.png"> -->
         <button><router-link :to="{ name: 'HelloWorld' }">Home (HelloWorld)</router-link></button>
         <button><router-link to="/props-type">Props Default Type</router-link></button>
@@ -23,6 +23,14 @@
         <button class="btnbold"><router-link to="/service-caller">Service Caller</router-link></button>
         <button class="btnbold"><router-link to="/mock-service">Mock Service</router-link></button>
         <button class="btnbold"><router-link to="/dynamic-component-mount">Dynamic Component (Mount)</router-link></button>
+        <button class="btnbold"><router-link to="/async-component">Async Component</router-link></button>
+        <button class="btnbold"><router-link to="/transition-example">Transition Component</router-link></button>
+        <button class="btnbold"><router-link to="/virtural-scroll">Virtural Scroll</router-link></button>
+        <button class="btnbold"><router-link to="/vuex-example">Vuex Example</router-link></button>
+        <button class="btnbold"><router-link to="/vue-set">Vue set Method</router-link></button>
+        <button class="btnbold"><router-link to="/vue-extends">Vue Extends</router-link></button>
+        <button class="btnbold"><router-link to="/provide-inject">Vue Provide/Inject</router-link></button>
+        <button class="btnbold"><router-link to="/vuex-todomvc">Vuex Todo MVC</router-link></button>
         <router-view/>
     </div>
 </template>

@@ -21,6 +21,14 @@ import ServiceCaller from '@/components/ServiceCaller';
 import MockingHttpRequest from '@/components/MockingHttpRequest';
 import DynamicComponentOfMount from '@/components/DynamicComponentOfMount';
 import Filters from '@/components/Filters';
+import AsyncComponent from '@/components/AsyncComponent';
+import TransitionComponent from '@/components/Transition';
+import VirturalScroll from '@/components/VirturalScroll';
+import VuexBestExample from '@/components/VuexBestExample';
+import VueSetMethod from '@/components/VueSetMethod';
+import VueExtends from '@/components/VueExtends';
+import ProvideInject from '@/components/ProvideInject';
+import TodoMVC from '@/components/TodoMVC';
 
 Vue.use(Router);
 
@@ -134,6 +142,46 @@ export default new Router({
             path: '/filters',
             name: 'Filters',
             component: Filters
+        },
+        {
+            path: '/async-component',
+            name: 'AsyncComponent',
+            component: AsyncComponent
+        },
+        {
+            path: '/transition-example',
+            name: 'TransitionComponent',
+            component: TransitionComponent
+        },
+        {
+            path: '/virtural-scroll',
+            name: 'VirturalScroll',
+            component: VirturalScroll
+        },
+        {
+            path: '/vuex-example',
+            name: 'VuexBestExample',
+            component: VuexBestExample
+        },
+        {
+            path: '/vue-set',
+            name: 'VueSetMethod',
+            component: VueSetMethod
+        },
+        {
+            path: '/vue-extends',
+            name: 'VueExtends',
+            component: VueExtends
+        },
+        {
+            path: '/provide-inject',
+            name: 'ProvideInject',
+            component: ProvideInject
+        },
+        {
+            path: '/vuex-todomvc',
+            name: 'TodoMVC',
+            component: TodoMVC
         }
     ]
 });

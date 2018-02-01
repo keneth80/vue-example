@@ -64,7 +64,7 @@ export default {
     },
     created () {
         // mounted 되기전에는 하위 element가 vm에 바인딩 되지 않는다. this.$refs.title = undefined
-        console.log('created => log', this.$refs.title);
+        console.log('created => log', this.$refs.title, this.log);
         this.log.push('created');
     },
     beforeMount () {
@@ -81,6 +81,9 @@ export default {
             this.log.push('mounted $nextTick');
             console.log('mounted $nextTick');
         });
+    },
+    render (h) {
+        console.log('render', h);
     },
     beforeDestroy () {
         console.log('beforeDestroy', this.$refs);

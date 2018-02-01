@@ -20,6 +20,15 @@
             <li class="list-group-item" v-for="(item, index) in log" :key="index"> {{ item }} </li>
         </ul>
         <span>computed: {{textResult}}</span>
+        <br/>
+        <!-- array watch -->
+        <div>
+            <button @click="change">change</button>
+            <div v-for="(q, index) in Questions" :key="index">
+                <input type="text" v-model="q.foo">
+            </div>
+            <pre>{{ Questions }}</pre>
+        </div>
     </div>
 </template>
 
@@ -45,7 +54,9 @@ export default {
             },
             resultString: {
                 type: String
-            }
+            },
+            Questions: [], // array watcher
+            cloneQuestions: [] // array watcher
         };
     },
     watch: {
@@ -57,7 +68,8 @@ export default {
         log: {
             handler: function (newvalue, oldvalue) {
                 console.log('log watch : ', newvalue, oldvalue);
-            }
+            },
+            deep: true
         }
     },
     computed: {
@@ -110,6 +122,10 @@ export default {
             this.updateCnt = 0;
             this.textResult = '';
             this.log = [];
+        },
+        // array watch
+        change: function () {
+            this.Questions[0].foo = 5;
         }
     },
     beforeCreate () {
@@ -117,6 +133,20 @@ export default {
     },
     created () {
         console.log('created');
+        // array watch
+        var vm = this;
+        this.$watch('Questions', function (after, before) {
+            after.filter(function (p, idx) {
+                return Object.keys(p).some(function (prop) {
+                    const diff = p[prop] !== vm.cloneQuestions[idx][prop];
+                    if (diff) {
+                        console.log('changed', idx, prop);
+                        p.changed = true;
+                        vm.cloneQuestions[idx][prop] = p[prop];
+                    }
+                });
+            });
+        }, {deep: true});
     },
     beforeMount () {
         console.log('beforeMount');
@@ -126,6 +156,9 @@ export default {
     },
     mounted () {
         console.log('mounted');
+        // array watch
+        this.Questions = [{foo: 1, changed: false}, {foo: 2, changed: false}];
+        this.cloneQuestions = this.Questions.map(a => Object.assign({}, a));
         this.$nextTick(function () {
             this.clickCnt = 0;
             this.updateCnt = 0;

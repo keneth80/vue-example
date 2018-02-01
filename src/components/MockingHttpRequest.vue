@@ -18,6 +18,8 @@
 
 <script>
 import Vue from 'vue';
+import axios from 'axios';
+import MockService from '../common/service/MockService';
 
 const routes = [
     {
@@ -115,6 +117,17 @@ export default {
                 // error callback
                 console.log('Error => ', response);
             });
+            let _this = this;
+            axios
+                .get('/user?id=123')
+                .then(response => {
+                    // _this.userName = response.data.name
+                    // _this.userPassword = response.data.password
+                    console.log('response : ', response);
+                })
+                .catch(error => {
+                    console.log('error : ', error);
+                });
         }
     },
     beforeCreate () {
@@ -127,6 +140,7 @@ export default {
         });
         console.log('created');
         console.log('template string : ', result);
+        const mocksvc = new MockService();
     },
     beforeMount () {
         console.log('beforeMount');
